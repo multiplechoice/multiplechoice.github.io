@@ -39,7 +39,6 @@
     "postcss-import": "^9.1.0",
     "postcss-loader": "^1.2.2",
     "postcss-mixins": "^5.4.1",
-    "react-hot-loader": "^3.0.0-beta.6",
     "react-scripts": "1.0.6",
     "redux-devtools-extension": "^2.13.2",
     "webpack": "^2.6.1",

@@ -4,7 +4,6 @@ const webpack = require('webpack');
 const settings = {
   entry: {
     bundle: [
-      "react-hot-loader/patch",
       "./src/frontend/index.js"
     ]
   },
