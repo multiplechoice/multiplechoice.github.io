@@ -10,9 +10,9 @@
     }
   ],
   "repository": {
-     "type": "git",
-     "url": "git+https://github.com/multiplechoice/multiplechoice.github.io.git"
-   },
+    "type": "git",
+    "url": "git+https://github.com/multiplechoice/multiplechoice.github.io.git"
+  },
   "dependencies": {
     "axios": "^0.16.1",
     "babel-preset-stage-2": "^6.1.18",
@@ -48,7 +48,7 @@
   "scripts": {
     "start": "node_modules/.bin/cross-env NODE_ENV=development node_modules/.bin/webpack-dev-server --colors --config webpack.config.js",
     "build": "node_modules/.bin/cross-env NODE_ENV=production UV_THREADPOOL_SIZE=100 webpack --config webpack.config.js",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build -e docs -b master"
   },
   "main": "index.js",
   "license": "MIT",
