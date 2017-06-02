@@ -21,7 +21,7 @@ class SearchBar extends Component {
     event.preventDefault();
 
     this.props.searchJobs(this.state.term);
-    this.setState({ term: '' });
+    // this.setState({ term: '' });
   }
 
   render() {
@@ -32,9 +32,6 @@ class SearchBar extends Component {
           className="form-control"
           value={this.state.term}
           onChange={this.onInputChange} />
-        <span className="input-group-btn">
-          <button type="submit" className="btn btn-secondary">Submit</button>
-        </span>
       </form>
     );
   }
