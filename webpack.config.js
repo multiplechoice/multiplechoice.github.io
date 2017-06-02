@@ -29,12 +29,7 @@ const settings = {
           ],
           plugins: [
             "transform-node-env-inline"
-          ],
-          env: {
-            development: {
-              plugins: ["react-hot-loader/babel"]
-            }
-          }
+          ]
         }
       },
       {
