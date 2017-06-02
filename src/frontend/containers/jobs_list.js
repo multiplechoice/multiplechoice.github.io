@@ -33,8 +33,27 @@ class JobsList extends Component {
     );
   }
 
+  filterJob(job, term) {
+    const search_term = term.toLowerCase();
+    const { company, title } = job;
+
+    // sometimes the fields are null (more the company than title though)
+    if (company != null && company.toLowerCase().includes(search_term)) {
+      return true;
+    }
+    if (title != null && title.toLowerCase().includes(search_term)) {
+      return true;
+    }
+    return false;
+  }
+
   render() {
-    const jobs = _.reverse(_.sortBy(this.props.jobs, ['posted', 'spider']));
+    let { term, jobs } = this.props;
+    if (term) {
+      jobs = jobs.filter((job) => this.filterJob(job, term));
+    };
+    jobs = _.reverse(_.sortBy(jobs, ['posted', 'spider']));
+
     return (
       <section className="jobs">
         <ul>
@@ -45,8 +64,8 @@ class JobsList extends Component {
   }
 }
 
-function mapStateToProps({ jobs }) {
-  return { jobs };
+function mapStateToProps({ jobs, term }) {
+  return { jobs: jobs, term: term };
 }
 
 function mapDispatchToProps(dispatch) {
