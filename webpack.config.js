@@ -1,5 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 
 const settings = {
   entry: {
@@ -64,6 +66,10 @@ const settings = {
     new webpack.LoaderOptionsPlugin({
       debug: true
     }),
+    new CopyWebpackPlugin([{
+      from: path.resolve("src/www"),
+      to: path.resolve("build")
+    }])
   ],
 };
 
