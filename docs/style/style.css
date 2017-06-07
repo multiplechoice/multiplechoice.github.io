@@ -8,6 +8,35 @@ body {
   margin: 30px auto 0;
 }
 
+form {
+  margin: 0 auto 24px;
+  max-width: 500px;
+  width: 100%;
+}
+
+form input {
+  width: inherit;
+  border: 0px;
+  border-bottom: 1px solid #FF851B;
+  background: #85144B;
+  height: 34px;
+  font-size: 18px;
+  outline: 0;
+  padding: 0 10px 0 10px;
+}
+
+form input::placeholder {
+  color: #fff;
+}
+
+form input:focus {
+  background-color: #fff;
+}
+
+form input::placeholder:focus {
+  color: #1f1f1f;
+}
+
 a {
   text-decoration: none;
 }
