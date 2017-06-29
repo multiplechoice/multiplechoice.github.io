@@ -53,7 +53,7 @@ class JobsList extends Component {
     if (term) {
       jobs = jobs.filter((job) => this.filterJob(job, term));
     };
-    jobs = _.reverse(_.sortBy(jobs, ['posted', 'spider']));
+    jobs = _.reverse(_.sortBy(jobs, ['created_at', 'spider']));
 
     return (
       <section className="jobs">
