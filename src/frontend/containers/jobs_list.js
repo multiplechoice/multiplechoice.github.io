@@ -54,7 +54,7 @@ class JobsList extends Component {
       jobs = jobs.filter((job) => this.filterJob(job, term));
     };
     jobs = _.reverse(_.sortBy(jobs, item => {
-      return sites[item['spider']].accurate ? item.posted : item.created_at;
+      return sites[item.spider].accurate ? item.posted : item.created_at;
     }));
 
     return (
