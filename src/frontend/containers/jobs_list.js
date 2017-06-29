@@ -13,14 +13,15 @@ class JobsList extends Component {
   }
 
   renderListItem(item) {
-    const { company, title, posted, deadline, spider, url } = item;
-    const m = moment(posted);
+    const { company, title, created_at, posted, deadline, spider, url } = item;
+    const m = sites[spider].accurate ? moment(posted) : moment(created_at);
+
     return (
       <li key={_.uniqueId()} className="job">
         <a href={url} target="_blank">
           <h2 className="company">{company}</h2>
           <p className="title">{title}</p>
-          <date className="posted-at" title={m.format("Do MMMM YYYY")}>
+          <date className="posted-at" title={m.format("MMMM Do YYYY, h:mm:ss a")}>
             {m.fromNow()}
             <i className="material-icons md-18">access_time</i>
           </date>
