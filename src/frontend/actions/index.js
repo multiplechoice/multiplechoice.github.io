@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = 'https://eutzzt9nql.execute-api.eu-central-1.amazonaws.com/dev/all?results=250&days=31';
+const URL = 'https://eutzzt9nql.execute-api.eu-central-1.amazonaws.com/dev/all?results=500&days=21';
 
 export const FETCH_JOBS = 'fetch_jobs';
 export const SEARCH_JOBS = 'search_jobs';
