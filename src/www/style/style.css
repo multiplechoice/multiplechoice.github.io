@@ -1,122 +1,20 @@
-body {
-  font-family: "Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
-  background-color: #85144B;
-}
-
 .container {
-  width: 800px;
-  margin: 30px auto 0;
+  height: 100vh;
 }
 
-form {
-  margin: 0 auto 24px;
-  max-width: 500px;
-  width: 100%;
+.section {
+  height: 93vh;
+  overflow-y: scroll;
 }
 
-form input {
-  width: inherit;
-  border: 0px;
-  border-bottom: 1px solid #FF851B;
-  background: #85144B;
-  height: 34px;
-  font-size: 18px;
-  outline: 0;
-  padding: 0 10px 0 10px;
-}
-
-form input::placeholder {
-  color: #fff;
-}
-
-form input:focus {
-  background-color: #fff;
-}
-
-form input::placeholder:focus {
-  color: #1f1f1f;
-}
-
-a {
-  text-decoration: none;
-}
-
-a:active, a:focus, a:hover {
-  outline: 0;
-}
-
-.jobs {
-  float: left;
-  width: 800px;
-}
-
-.jobs ul {
-  list-style-type: none;
-  margin: 0 0 20px;
-  padding: 0;
-  border-radius: 5px;
-  background-clip: padding-box;
-  background-color: #85144B;
-  clear: both;
-}
-
-.jobs ul li {
-  border-bottom: 1px solid #FF851B;
-}
-
-.jobs ul li a {
-  display: block;
-  padding: 13px 20px 11px;
-}
-
-.jobs ul li:hover {
-  background-color: #FF4136;
-}
-
-.jobs ul li:hover h2 {
-  color: #ffa636p;
+.job-list-entry {
+  height: 64px;
 }
 
 .company {
-  color: #FF851B;
-  font-size: 18px;
-  font-weight: 700;
-  margin: 0;
-  width: 560px;
-  height: 23px;
-}
-
-.title {
-  color: #fff;
-  font-size: 14px;
-  margin: 2px 0;
+  height: 19px;
 }
 
 .posted-at {
-  color: #bbb;
-  font-size: 14px;
-  position: absolute;
-  margin-left: 635px;
-  margin-top: -42px;
-  display: block;
-  width: 120px;
-  text-align: right;
-}
-
-.source {
-  color: #bbb;
-  text-align: right;
-  font-size: 14px;
-  margin-left: 575px;
-  margin-top: -22px;
-  display: block;
-  position: absolute;
-  width: 180px;
-}
-
-.material-icons.md-18 {
-  position: relative;
-  left: 4px;
-  top: 5px;
-  font-size: 18px;
+  bottom: 0;
 }

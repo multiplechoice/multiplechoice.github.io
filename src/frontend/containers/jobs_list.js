@@ -4,10 +4,18 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import moment from 'moment';
 
-import { fetchJobs } from '../actions';
+import { fetchJobs, selectJob } from '../actions/index';
 import { sites } from '../components/header';
 
 class JobsList extends Component {
+  constructor(props) {
+    super(props);
+
+    // need to bind the renderListItem method to the instance so that
+    // it can invoke this.props.selectJob()
+    this.renderListItem = this.renderListItem.bind(this);
+  }
+
   componentDidMount() {
     this.props.fetchJobs();
   }
@@ -17,25 +25,24 @@ class JobsList extends Component {
     const m = sites[spider].accurate ? moment(posted) : moment(created_at);
 
     return (
-      <li key={_.uniqueId()} className="job">
-        <a href={url} target="_blank">
-          <h2 className="company">{company}</h2>
-          <p className="title">{title}</p>
-          <date className="posted-at" title={m.format("MMMM Do YYYY, h:mm:ss a")}>
-            {m.fromNow()}
-            <i className="material-icons md-18">access_time</i>
-          </date>
-          <span className="source">
-            {sites[spider].name}
-            <i className="material-icons md-18">link</i>
-          </span>
-        </a>
-      </li>
+      <a href="#" className="job-list-entry list-group-item" key={_.uniqueId()}>
+        <div className="row" onClick={() => this.props.selectJob(item)}>
+          <div className="col-md-9">
+            <h4 className="company list-group-item-heading">{company}</h4>
+            <p className="title list-group-item-text">{title}</p>
+          </div>
+          <div className="col-md-3 text-right">
+            <date className="posted-at" title={m.format("MMMM Do YYYY, h:mm:ss a")}>
+              {m.fromNow()}
+            </date>
+          </div>
+        </div>
+      </a>
     );
   }
 
-  filterJob(job, term) {
-    const search_term = term.toLowerCase();
+  filterJob(job, searchTerm) {
+    const search_term = searchTerm.toLowerCase();
     const { company, title } = job;
 
     // sometimes the fields are null (more the company than title though)
@@ -49,30 +56,30 @@ class JobsList extends Component {
   }
 
   render() {
-    let { term, jobs } = this.props;
-    if (term) {
-      jobs = jobs.filter((job) => this.filterJob(job, term));
+    let { searchTerm, jobs } = this.props;
+    if (searchTerm) {
+      jobs = jobs.filter((job) => this.filterJob(job, searchTerm));
     };
     jobs = _.reverse(_.sortBy(jobs, item => {
       return sites[item.spider].accurate ? item.posted : item.created_at;
     }));
 
     return (
-      <section className="jobs">
-        <ul>
+      <div className="section col-md-6">
+        <div className="list-group">
           { jobs.map(this.renderListItem) }
-        </ul>
-      </section>
+        </div>
+      </div>
     );
   }
 }
 
-function mapStateToProps({ jobs, term }) {
-  return { jobs: jobs, term: term };
+function mapStateToProps( state ) {
+  return { jobs: state.jobs, searchTerm: state.searchTerm };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchJobs }, dispatch);
+  return bindActionCreators({ fetchJobs: fetchJobs, selectJob: selectJob }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(JobsList);
