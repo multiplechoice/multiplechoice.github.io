@@ -25,8 +25,11 @@ class JobsList extends Component {
     const m = sites[spider].accurate ? moment(posted) : moment(created_at);
 
     return (
-      <a href="#" className="job-list-entry list-group-item" key={_.uniqueId()}>
-        <div className="row" onClick={() => this.props.selectJob(item)}>
+      <a href="#"
+        className="job-list-entry list-group-item"
+        key={_.uniqueId()}
+        onClick={() => this.props.selectJob(item)}>
+        <div className="row">
           <div className="col-md-9">
             <h4 className="company list-group-item-heading">{company}</h4>
             <p className="title list-group-item-text">{title}</p>
