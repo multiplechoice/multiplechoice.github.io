@@ -46,13 +46,16 @@ class JobsList extends Component {
 
   filterJob(job, searchTerm) {
     const search_term = searchTerm.toLowerCase();
-    const { company, title } = job;
+    const { company, title, description } = job;
 
     // sometimes the fields are null (more the company than title though)
     if (company != null && company.toLowerCase().includes(search_term)) {
       return true;
     }
     if (title != null && title.toLowerCase().includes(search_term)) {
+      return true;
+    }
+    if (description != null && description.toLowerCase().includes(search_term)) {
       return true;
     }
     return false;
