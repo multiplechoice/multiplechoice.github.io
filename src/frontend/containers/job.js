@@ -42,7 +42,9 @@ class Job extends Component {
               <br />
             </div>
             <div className="text-right">
-              Seen on {site.name} <PostedElement timestamp={timestamp} />
+              <a href={url} target="_blank">
+                Seen on {site.name} <PostedElement timestamp={timestamp} />
+              </a>
             </div>
           </div>
         </div>

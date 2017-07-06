@@ -30,9 +30,11 @@ class JobsList extends Component {
         className="job-list-entry list-group-item"
         key={_.uniqueId()}
         onClick={() => this.props.selectJob(item)}>
-
-          <h4 className="title list-group-item-heading">{title}</h4>
-          <p className="company list-group-item-text">{company}</p>
+        <h4 className="title">
+          {title}
+          <br />
+          <small>{company}</small>
+        </h4>
       </a>
     );
   }
