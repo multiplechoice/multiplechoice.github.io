@@ -15,6 +15,12 @@
   height: 19px;
 }
 
+.title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .posted-at {
   bottom: 0;
 }
