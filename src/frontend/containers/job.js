@@ -24,7 +24,6 @@ class Job extends Component {
       deadline,
       spider,
       url } = job;
-    console.log(spider);
     const site = sites[spider]
     const timestamp = sites[spider].accurate ? posted : created_at;
 
