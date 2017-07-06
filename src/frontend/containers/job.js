@@ -10,14 +10,20 @@ class Job extends Component {
   }
 
   render() {
+    if (!this.props.job) {
+      return <div></div>
+    }
     return (
       <div className="section col-md-6">
-        <section className="jobDetails">
-          <h3>Details:</h3>
-          <h2 className="company">{ this.props.job.company }</h2>
-          <p className="title">{ this.props.job.title }</p>
-          <div dangerouslySetInnerHTML={ this.getInnerHTML() } />
-        </section>
+        <h4 className="company">{ this.props.job.company }</h4>
+        <p className="title">{ this.props.job.title }</p>
+        <div className="panel panel-default">
+          <div className="panel-heading">
+            <h3 className="panel-title">Job Description</h3>
+          </div>
+          <div className="panel-body"
+            dangerouslySetInnerHTML={ this.getInnerHTML() } />
+        </div>
       </div>
     );
   }
