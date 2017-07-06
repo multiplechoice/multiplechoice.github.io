@@ -2,10 +2,10 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import moment from 'moment';
 
 import { fetchJobs, selectJob } from '../actions/index';
 import { sites } from '../components/header';
+import PostedElement from '../components/date';
 
 class JobsList extends Component {
   constructor(props) {
@@ -22,24 +22,17 @@ class JobsList extends Component {
 
   renderListItem(item) {
     const { company, title, created_at, posted, deadline, spider, url } = item;
-    const m = sites[spider].accurate ? moment(posted) : moment(created_at);
+    const site = sites[spider]
+    const timestamp = site.accurate ? posted : created_at;
 
     return (
       <a href="#"
         className="job-list-entry list-group-item"
         key={_.uniqueId()}
         onClick={() => this.props.selectJob(item)}>
-        <div className="row">
-          <div className="col-md-9">
-            <h4 className="company list-group-item-heading">{company}</h4>
-            <p className="title list-group-item-text">{title}</p>
-          </div>
-          <div className="col-md-3 text-right">
-            <date className="posted-at" title={m.format("MMMM Do YYYY, h:mm:ss a")}>
-              {m.fromNow()}
-            </date>
-          </div>
-        </div>
+
+          <h4 className="title list-group-item-heading">{title}</h4>
+          <p className="company list-group-item-text">{company}</p>
       </a>
     );
   }
@@ -71,7 +64,7 @@ class JobsList extends Component {
     }));
 
     return (
-      <div className="section col-md-6">
+      <div className="section col-md-5">
         <div className="list-group">
           { jobs.map(this.renderListItem) }
         </div>
