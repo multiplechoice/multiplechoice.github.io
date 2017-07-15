@@ -21,7 +21,13 @@ class JobsList extends Component {
   }
 
   renderListItem(item) {
-    const { company, title, created_at, posted, deadline, spider, url } = item;
+    const {
+      company,
+      title,
+      created_at,
+      posted,
+      spider,
+      url } = item;
     const site = sites[spider]
     const timestamp = site.accurate ? posted : created_at;
 
