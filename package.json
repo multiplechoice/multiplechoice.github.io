@@ -16,7 +16,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "babel-preset-stage-2": "^6.1.18",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "moment": "^2.19.3",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
